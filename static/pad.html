@@ -24,7 +24,7 @@
 
 <ul id="menu_left">
 <li onClick="window.pad&&pad.editbarClick('bold');return false" >
-  <a title="Bold (ctrl-B)">
+  <a title="Compile Arduino">
     <div class="buttonicon" style="background-position:0px -116px"></div>
   </a>
 </li>
@@ -117,7 +117,7 @@
   </div>
 
   <div id="myuser">
-  
+
      <div id="mycolorpicker">
         <div id="colorpicker"></div>
 <!--
@@ -137,33 +137,33 @@
     <div id="myusernameform"><input type="text" id="myusernameedit" disabled="disabled" /></div>
     <div id="mystatusform"><input type="text" id="mystatusedit" disabled="disabled" /></div>
   </div>
-  
+
   <div id="otherusers">
     <div id="guestprompts"><!-- --></div>
-    
+
     <table id="otheruserstable" cellspacing="0" cellpadding="0" border="0">
   	<tr>
   	<td>
   	</td>
     </tr>
     </table>
-    
+
     <div id="nootherusers">
     </div>
   </div>
-  
+
   <div id="userlistbuttonarea">
     <!--<a href="javascript:void(0)" id="sharebutton">Share</a>-->
   </div>
-  
-</div> 
+
+</div>
 <!-- /padusers -->
-  
-  
+
+
 <!--<div id="users">
 
 	<!-- some example code so I can make the css --*>
-	
+
 </div>-->
 
 <div id="editorcontainerbox">
@@ -183,19 +183,19 @@
 <div id="import">
   Import from text file, HTML, PDF, Word, ODT or RTF:<br/><br/>
   <form id="importform" method="post" action="" target="importiframe" enctype="multipart/form-data">
-    <div class="importformdiv" id="importformfilediv"> 
-      <input type="file" name="file" size="15" id="importfileinput" /> 
-      <div class="importmessage" id="importmessagefail"></div> 
-    </div> 
-  <div class="importmessage" id="importmessagesuccess">Successful!</div> 
-  <div class="importformdiv" id="importformsubmitdiv"> 
-    <input type="hidden" name="padId" value="blpmaXT35R" /> 
-    <span class="nowrap"> 
-      <input type="submit" name="submit" value="Import Now" disabled="disabled" id="importsubmitinput" /> 
-      <img alt="" id="importstatusball" src="../static/img/loading.gif" align="top" /> 
-      <img alt="" id="importarrow" src="../static/img/leftarrow.png" align="top" /> 
-    </span> 
-  </div> 
+    <div class="importformdiv" id="importformfilediv">
+      <input type="file" name="file" size="15" id="importfileinput" />
+      <div class="importmessage" id="importmessagefail"></div>
+    </div>
+  <div class="importmessage" id="importmessagesuccess">Successful!</div>
+  <div class="importformdiv" id="importformsubmitdiv">
+    <input type="hidden" name="padId" value="blpmaXT35R" />
+    <span class="nowrap">
+      <input type="submit" name="submit" value="Import Now" disabled="disabled" id="importsubmitinput" />
+      <img alt="" id="importstatusball" src="../static/img/loading.gif" align="top" />
+      <img alt="" id="importarrow" src="../static/img/leftarrow.png" align="top" />
+    </span>
+  </div>
 </form>
 </div>
 
@@ -209,9 +209,9 @@
   <a id="exportpdfa" target="_blank" class="exportlink"><div class="exporttype" id="exportpdf">PDF</div></a>
   <a id="exportopena" target="_blank" class="exportlink"><div class="exporttype" id="exportopen">OpenDocument</div></a>
   <a id="exportwordlea" target="_blank" onClick="padimpexp.export2Wordle();return false;" class="exportlink"><div class="exporttype" id="exportwordle">Wordle</div></a>
-  <form id="wordlepost" name="wall" action="http://wordle.net/advanced" method="POST" style="margin-left:0px;"> 
-    <div id="hidetext" style=""><textarea id="text" name="text" id="text" style="display:none;">Coming soon!</textarea></div> 
-  </form> 
+  <form id="wordlepost" name="wall" action="http://wordle.net/advanced" method="POST" style="margin-left:0px;">
+    <div id="hidetext" style=""><textarea id="text" name="text" id="text" style="display:none;">Coming soon!</textarea></div>
+  </form>
 </div>
 </div>
 
