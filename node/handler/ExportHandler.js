@@ -27,103 +27,164 @@ var os = require('os');
 
 //load abiword only if its enabled
 if(settings.abiword != null)
-  var abiword = require("../utils/Abiword");
+    var abiword = require("../utils/Abiword");
+
+// load ardupad only if its enabled
+if(settings.gcc != null)
+    var ardupad = require("../utils/Ardupad");
 
 var tempDirectory = "/tmp";
 
-//tempDirectory changes if the operating system is windows 
+//tempDirectory changes if the operating system is windows
 if(os.type().indexOf("Windows") > -1)
 {
-  tempDirectory = process.env.TEMP;
+    tempDirectory = process.env.TEMP;
 }
-  
+
 /**
  * do a requested export
- */ 
+ */
 exports.doExport = function(req, res, padId, type)
 {
-  //tell the browser that this is a downloadable file
-  res.attachment(padId + "." + type);
+    //tell the browser that this is a downloadable file
+    res.attachment(padId + "." + type);
 
-  //if this is a plain text export, we can do this directly
-  if(type == "txt")
-  {
-    padManager.getPad(padId, function(err, pad)
+    //if this is a plain text export, we can do this directly
+    if(type == "txt")
     {
-      if(err)
-        throw err;
-         
-      res.send(pad.text());
-    });
-  }
-  else
-  {
-    var html;
-    var randNum;
-    var srcFile, destFile;
+	padManager.getPad(padId, function(err, pad)
+			  {
+			      if(err)
+				  throw err;
 
-    async.series([
-      //render the html document
-      function(callback)
-      {
-        exporthtml.getPadHTMLDocument(padId, null, false, function(err, _html)
-        {
-          html = _html;
-          callback(err);
-        });   
-      },
-      //decide what to do with the html export
-      function(callback)
-      {
-        //if this is a html export, we can send this from here directly
-        if(type == "html")
-        {
-          res.send(html);
-          callback("stop");  
-        }
-        //write the html export to a file
-        else
-        {
-          randNum = Math.floor(Math.random()*new Date().getTime());
-          srcFile = tempDirectory + "/eplite_export_" + randNum + ".html";
-          fs.writeFile(srcFile, html, callback); 
-        }
-      },
-      //send the convert job to abiword
-      function(callback)
-      {
-        //ensure html can be collected by the garbage collector
-        html = null;
-      
-        destFile = tempDirectory + "/eplite_export_" + randNum + "." + type;
-        abiword.convertFile(srcFile, destFile, type, callback);
-      },
-      //send the file
-      function(callback)
-      {
-        res.sendfile(destFile, null, callback);
-      },
-      //clean up temporary files
-      function(callback)
-      {
-        async.parallel([
-          function(callback)
-          {
-            fs.unlink(srcFile, callback);
-          },
-          function(callback)
-          {
-            //100ms delay to accomidate for slow windows fs
-            setTimeout(function() 
-            {
-              fs.unlink(destFile, callback);
-            }, 100);
-          }
-        ], callback);
-      }
-    ], function(err)
+			      res.send(pad.text());
+			  });
+    }
+    else if (type == "arduino") {
+	var padText;
+	var randNum;
+	var srcFile, destFile;
+
+	async.series([
+	    //render the html document
+	    function(callback)
+	    {
+		padManager.getPad(padId, function(err, pad)
+				  {
+				      padText = pad;
+				      callback(err);
+				  });
+	    },
+
+	    //decide what to do with the html export
+	    function(callback)
+	    {
+
+		// write the pad to a temp file
+		randNum = Math.floor(Math.random()*new Date().getTime());
+		srcFile = tempDirectory + "/eplite_export_" + randNum + ".c";
+		destFile = tempDirectory + "/eplite_export_" + randNum + ".hex";
+		fs.writeFile(srcFile, padText.text());
+		ardupad.compileFile(srcFile, destFile, type, callback);
+
+	    },
+
+	    //send the file
+	    function(callback)
+	    {
+		res.sendfile(destFile, null, callback);
+	    },
+	    //clean up temporary files
+	    function(callback)
+	    {
+		async.parallel([
+		    function(callback)
+		    {
+			fs.unlink(srcFile, callback);
+		    },
+		    function(callback)
+		    {
+			//100ms delay to accomidate for slow windows fs
+			setTimeout(function()
+				   {
+				       fs.unlink(destFile, callback);
+				   }, 100);
+		    }
+		], callback);
+	    }
+	], function(err)
+		     {
+			 if(err && err != "stop") throw err;
+		     })
+    }
+    else
     {
-      if(err && err != "stop") throw err;
-    })
-  }
+	var html;
+	var randNum;
+	var srcFile, destFile;
+
+	async.series([
+	    //render the html document
+	    function(callback)
+	    {
+		exporthtml.getPadHTMLDocument(padId, null, false, function(err, _html)
+					      {
+						  html = _html;
+						  callback(err);
+					      });
+	    },
+	    //decide what to do with the html export
+	    function(callback)
+	    {
+		//if this is a html export, we can send this from here directly
+		if(type == "html")
+		{
+		    res.send(html);
+		    callback("stop");
+		}
+		//write the html export to a file
+		else
+		{
+		    randNum = Math.floor(Math.random()*new Date().getTime());
+		    srcFile = tempDirectory + "/eplite_export_" + randNum + ".html";
+		    fs.writeFile(srcFile, html, callback);
+		}
+	    },
+	    //send the convert job to abiword
+	    function(callback)
+	    {
+		//ensure html can be collected by the garbage collector
+		html = null;
+
+		destFile = tempDirectory + "/eplite_export_" + randNum + "." + type;
+		abiword.convertFile(srcFile, destFile, type, callback);
+	    },
+	    //send the file
+	    function(callback)
+	    {
+		res.sendfile(destFile, null, callback);
+	    },
+	    //clean up temporary files
+	    function(callback)
+	    {
+		async.parallel([
+		    function(callback)
+		    {
+			fs.unlink(srcFile, callback);
+		    },
+		    function(callback)
+		    {
+			//100ms delay to accomidate for slow windows fs
+			setTimeout(function()
+				   {
+				       fs.unlink(destFile, callback);
+				   }, 100);
+		    }
+		], callback);
+	    }
+	], function(err)
+		     {
+			 if(err && err != "stop") throw err;
+		     })
+    }
 };

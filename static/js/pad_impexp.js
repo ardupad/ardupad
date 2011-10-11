@@ -64,7 +64,7 @@ var padimpexp = (function()
     $('#importmessagefail').fadeOut("fast");
     var ret = window.confirm("Importing a file will overwrite the current text of the pad." + " Are you sure you want to proceed?");
     if (ret)
-    {        
+    {
       hidePanelCall = paddocbar.hideLaterIfNoOtherInteraction();
       currentImportTimer = window.setTimeout(function()
       {
@@ -88,7 +88,7 @@ var padimpexp = (function()
       }, 0);
       $('#importarrow').stop(true, true).hide();
       $('#importstatusball').show();
-      
+
       $("#import .importframe").load(function()
       {
         importDone();
@@ -234,7 +234,10 @@ var padimpexp = (function()
       $("#exporthtmla").attr("href", document.location.pathname + "/export/html");
       $("#exportplaina").attr("href", document.location.pathname + "/export/txt");
       $("#exportwordlea").attr("href", document.location.pathname + "/export/wordle");
-      
+
+      // build the compile links
+      $("#compiletexta").attr("href", document.location.pathname + "/compile");
+
       //hide stuff thats not avaible if abiword is disabled
       if(clientVars.abiwordAvailable == "no")
       {
@@ -248,24 +251,24 @@ var padimpexp = (function()
       else if(clientVars.abiwordAvailable == "withoutPDF")
       {
         $("#exportpdfa").remove();
-        
+
         $("#exportworda").attr("href", document.location.pathname + "/export/doc");
         $("#exportopena").attr("href", document.location.pathname + "/export/odt");
-        
+
         $("#importexport").css({"height":"142px"});
         $("#importexportline").css({"height":"142px"});
-        
-        $("#importform").get(0).setAttribute('action', document.location.href + "/import"); 
+
+        $("#importform").get(0).setAttribute('action', document.location.href + "/import");
       }
       else
       {
         $("#exportworda").attr("href", document.location.pathname + "/export/doc");
         $("#exportpdfa").attr("href", document.location.pathname + "/export/pdf");
         $("#exportopena").attr("href", document.location.pathname + "/export/odt");
-        
-        $("#importform").get(0).setAttribute('action', document.location.pathname + "/import"); 
+
+        $("#importform").get(0).setAttribute('action', document.location.pathname + "/import");
       }
-    
+
       $("#impexp-close").click(function()
       {
         paddocbar.setShownPanel(null);
@@ -302,8 +305,8 @@ var padimpexp = (function()
     export2Wordle: function()
     {
       var padUrl = document.location.href + "/export/txt";
-      
-      $.get(padUrl, function(data) 
+
+      $.get(padUrl, function(data)
       {
         $('.result').html(data);
         $('#text').html(data);

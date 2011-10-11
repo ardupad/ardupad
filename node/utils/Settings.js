@@ -1,5 +1,5 @@
 /**
- * The Settings Modul reads the settings out of settings.json and provides 
+ * The Settings Modul reads the settings out of settings.json and provides
  * this information to the other modules
  */
 
@@ -25,7 +25,7 @@ var fs = require("fs");
  * The IP ep-lite should listen to
  */
 exports.ip = "0.0.0.0";
-  
+
 /**
  * The Port ep-lite should listen to
  */
@@ -51,6 +51,11 @@ exports.minify = true;
  * The path of the abiword executable
  */
 exports.abiword = null;
+
+/**
+ * The path to avr-gcc executable
+ */
+exports.gcc = null;
 
 /**
  * The log level of log4js
