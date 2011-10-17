@@ -1,0 +1,11 @@
+{
+    "status": "assigned", 
+    "description": "Change favicon to reflect the new logo", 
+    "title": "Change favicon.ico", 
+    "reported_from": "Pierros Papadeas <ppapadeas@gmail.com>", 
+    "created_on": "None", 
+    "assigned_to": "Pierros Papadeas <ppapadeas@gmail.com>", 
+    "updated_on": "None", 
+    "type": "bug", 
+    "id": "9aea5c876153b64c2e35aed89fe65390ad4714506fe2c7610f0924ad01355c7b"
+}
