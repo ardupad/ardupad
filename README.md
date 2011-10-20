@@ -25,7 +25,11 @@ Visit <http://dev.ardupad.cc> to test it live
 <ol>
   <li>Install the dependencies. We need the gzip, git, curl, libssl develop libraries and python <br> 
   <li>For Debian/Ubuntu<code>apt-get install gzip git-core curl python libssl-dev build-essential</code> <br></li>
-  <li>For Fedora/CentOS <li><code>yum install gzip git-core curl python openssl-dev</code></li><li><code>yum groupinstall "Development Tools"</code></li></li>
+  <li>For Fedora/CentOS 
+	<ol type="a">
+	<li><code>yum install gzip git-core curl python openssl-dev</code></li>
+	<li><code>yum groupinstall "Development Tools"</code></li></li>
+	</ol>
   </li><br>
   <li>Install node.js 
     <ol type="a">
