@@ -14,44 +14,19 @@ You can use this [PHP Client](https://github.com/TomNomNom/etherpad-lite-client)
 There is also a [jQuery plugin](https://github.com/johnyma22/etherpad-lite-jquery-plugin) that helps you to embed Pads into your website
 
 **Online demo**<br>
-Visit <http://beta.etherpad.org> to test it live
-
-Here is the **[FAQ](https://github.com/Pita/etherpad-lite/wiki/FAQ)**
-
-# Etherpad vs Etherpad Lite
-<table>
-  <tr>
-    <td>&nbsp;</td><td><b>Etherpad</b></td><td><b>Etherpad Lite</b></td>
-  </tr>
-  <tr>
-    <td align="right">Size of the folder (without git history)</td><td>30 MB</td><td>1.5 MB</td>
-  </tr>
-  <tr>
-    <td align="right">Languages used server side</td><td>Javascript (Rhino), Java, Scala</td><td>Javascript (node.js)</td>
-  </tr>
-  <tr>
-    <td align="right">Lines of server side Javascript code</td><td>~101k</td><td>~9k</td>
-  </tr>
-  <tr>
-    <td align="right">RAM Usage immediately after start</td><td>257 MB (grows to ~1GB)</td><td>16 MB (grows to ~30MB)</td>
-  </tr>
-</table>
+Visit <http://dev.ardupad.cc> to test it live
 
 # Installation
-
-## Windows
-
-1. Download <http://etherpad.org/etherpad-lite-win.zip>
-2. Extract the file
-3. Open the extracted folder and double click `start.bat`
-4. Open your web browser and browse to <http://localhost:9001>. You like it? Look at the 'Next Steps' section below
 
 ## Linux
 
 **As root:**
 
 <ol>
-  <li>Install the dependencies. We need the gzip, git, curl, libssl develop libraries and python <br><code>apt-get install gzip git-core curl python libssl-dev build-essential</code></li><br>
+  <li>Install the dependencies. We need the gzip, git, curl, libssl develop libraries and python <br> 
+  <li>For Debian/Ubuntu<code>apt-get install gzip git-core curl python libssl-dev build-essential</code> <br></li>
+  <li>For Fedora/CentOS <li><code>yum install gzip git-core curl python openssl-dev</code></li><li><code>yum groupinstall "Development Tools"</code></li></li>
+  </li><br>
   <li>Install node.js 
     <ol type="a">
       <li>Download the latest <b>0.4.x</b> node.js release from <a href="http://nodejs.org/#download">http://nodejs.org/#download</a></li>
