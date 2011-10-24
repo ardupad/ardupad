@@ -1,0 +1,11 @@
+{
+    "status": "new", 
+    "description": "Users must be able to #include other pads. \n\nGoal:\nMake ardupad.cc a complete library of arduino code. User just include other pads as libraries.\n\nProblem to be solved: \nSince pads are editable by everyone, we should find a way to \"lock\" versions to avoid broken/ malicious code", 
+    "title": "Be able to #include other pads in pads", 
+    "reported_from": "Giorgos Logiotatidis <seadog@sealabs.net>", 
+    "created_on": "2011-10-24 17:38:46", 
+    "assigned_to": "None", 
+    "updated_on": "2011-10-24 17:38:46", 
+    "type": "feature", 
+    "id": "5a15cc87951cc3783e31f790ce9e3c47d2d2fd4decbae72fa6c1af70f9c8ce3f"
+}
