@@ -1,0 +1,11 @@
+{
+    "status": "assigned", 
+    "description": "Edit server.js to extend /p/:pad/compile/ to support arduino version like /p/:pad/compile/:version", 
+    "title": "Add support for different arduino versions", 
+    "reported_from": "Giorgos Logiotatidis <seadog@sealabs.net>", 
+    "created_on": "2011-10-24 17:34:51", 
+    "assigned_to": "Giorgos Logiotatidis <seadog@sealabs.net>", 
+    "updated_on": "2011-10-24 17:34:51", 
+    "type": "feature", 
+    "id": "ad68308ee681094a63855452790de2e8bcbaf0a2567d78c8ba5ba589fe3642d1"
+}
