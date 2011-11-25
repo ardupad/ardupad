@@ -1,5 +1,6 @@
 <!doctype html>
 <html>   
+    <head>
         <title>Etherpad Lite</title> 
         <style> 
             *{ margin:0;padding:0; }
@@ -89,6 +90,8 @@
         <link href="static/custom/index.css" rel="stylesheet"> 
         <script src="static/custom/index.js"></script>
         <link rel="icon" type="image/png" href="../static/img/ardupad-icon.png">
+    </head>
+    <body>
         <div id="container"> 
             <div id="button" onclick="go2Random()">New Pad</div><br><div id="label">or create/open a Pad with the name</div> 
             <form action="#" onsubmit="go2Name();return false;"> 
@@ -124,4 +127,5 @@
             //start the costum js
             if(typeof costumStart == "function") costumStart();
         </script> 
+    </body>
 </html>
