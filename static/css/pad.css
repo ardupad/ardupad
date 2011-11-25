@@ -319,7 +319,7 @@ a#hidetopmsg { position: absolute; right: 5px; bottom: 5px; }
 /*  background: url(static/img/vdraggie.gif) no-repeat top center;*/
   width:16px;
   height:16px;
-  background-image:url('../../static/img/etherpad_lite_icons.png');
+  background-image:url('../../static/img/ardupad_lite_icons.png');
   background-repeat: no-repeat;
   background-position: 0px -300px;
 
@@ -916,6 +916,38 @@ ul#colorpickerswatches li:hover
   bottom: 2px;
 }
 
+#seriallabel
+{
+  font-size:13px;
+  line-height:16px;
+  font-weight:bold;
+  color:#555;
+  text-decoration: none;
+  position: relative;
+  bottom: 3px;
+}
+
+#serialicon
+{
+  z-index: 400;
+  position:absolute;
+  bottom:0px;
+  left: 20px;
+  padding: 5px;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  border-top: 1px solid #999;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color:#fff;
+  cursor: pointer;
+}
+
+#serialicon a
+{
+  text-decoration: none;
+}
+
 #titlebar
 {
   line-height:16px;
@@ -1114,7 +1146,7 @@ opacity:.8;
 .buttonicon{
 width:16px;
 height:16px;
-background-image:url('../../static/img/etherpad_lite_icons.png');
+background-image:url('../../static/img/ardupad_lite_icons.png');
 background-repeat: no-repeat;
 margin-left: 1px;
 margin-top: 1px;
