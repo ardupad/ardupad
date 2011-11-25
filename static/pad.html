@@ -16,6 +16,7 @@
   <link href="../static/custom/pad.css" rel="stylesheet">
   <script src="../static/custom/pad.js"></script>
   <style type="text/css" title="dynamicsyntax"></style>
+  <link rel="icon" type="image/png" href="../static/img/ardupad-icon.png">
 </head>
 
 <body>
@@ -23,7 +24,7 @@
 <div id="editbar">
 
 <ul id="menu_left">
-<li onClick="window.pad&&pad.editbarClick('bold');return false" >
+<!--<li onClick="window.pad&&pad.editbarClick('bold');return false" >
   <a title="Compile Arduino">
     <div class="buttonicon" style="background-position:0px -116px"></div>
   </a>
@@ -43,7 +44,27 @@
     <div class="buttonicon" style="background-position:0px -200px"></div>
   </a>
 </li>
+-->
+
+<li style="border:0;background:none;width:105px;">
+  <a title="ardupad.cc" href="http://ardupad.cc">
+    <div><img src="../static/img/ardupad_logotype_small.png"></div>
+  </a>
+</li>
+
+<li onClick="#" >
+  <a title="Check Code">
+    <div class="buttonicon" style="background-position:0px -438px"></div>
+  </a>
+</li>
+<li onClick="#" >
+  <a title="Upload to Arduino">
+    <div class="buttonicon" style="background-position:0px -452px"></div>
+  </a>
+</li>
+
 <li class="separator"></li>
+
 <li onClick="window.pad&&pad.editbarClick('insertunorderedlist');return false;" >
   <a title="Toggle Bullet List">
     <div class="buttonicon" style="background-position:0px -34px"></div>
@@ -59,7 +80,9 @@
     <div class="buttonicon" style="background-position:0px -134px"></div>
 	</a>
 </li>
+
 <li class="separator"></li>
+
 <li onClick="window.pad&&pad.editbarClick('undo');return false;" >
   <a title="Undo (ctrl-Z)">
     <div class="buttonicon" style="background-position:0px -255px"></div>
@@ -70,12 +93,17 @@
     <div class="buttonicon" style="background-position:0px -166px"></div>
   </a>
 </li>
+
 <li class="separator"></li>
+
 <li onClick="window.pad&&pad.editbarClick('clearauthorship');return false;" >
   <a title="Clear Authorship Colors">
     <div class="buttonicon" style="background-position:0px -86px"></div>
   </a>
 </li>
+
+<li class="separator"></li>
+
 </ul>
 
 <ul id="menu_right">
@@ -235,6 +263,24 @@ Use this link to share a read-only version of your pad:<input id="readonlyInput"
 
 </div>
 
+<div id="serialicon">
+<a onClick="serial.show();return false;"
+	title="Open a serial monitor">
+	  <span id="seriallabel">Serial Monitor</span>
+          <div class="buttonicon" style="background-position:0px -468px;display:inline-block;"></div>
+</a>
+</div>
+
+<div id="serialbox">
+  <div id="titlebar"><span id ="titlelabel">Serial Monitor</span><a id="titlecross" onClick="serial.hide();return false;">-&nbsp;</a></div>
+  <div id="serialtext" class="authorColors"></div>
+  <div id="serialinputbox">
+    <form>
+      <input id="serialinput" type="text" maxlength="140"/>
+    </form>
+  </div>
+</div>
+
 <div id="chaticon">
 <a onClick="chat.show();return false;"
 	title="Open the chat for this pad">
@@ -278,13 +324,13 @@ Use this link to share a read-only version of your pad:<input id="readonlyInput"
 	<h2 class="h2_unauth">No Authorization.</h2>
 	<div id="disconnected_looping">
 		<p>
-			<b>We're having trouble talking to the EtherPad lite synchronization server.</b>
+			<b>We're having trouble talking to the Ardupad synchronization server.</b>
 			You may be connecting through an incompatible firewall or proxy server.
 		</p>
 	</div>
 	<div id="disconnected_initsocketfail">
 		<p>
-			<b>We were unable to connect to the EtherPad lite synchronization server.</b>
+			<b>We were unable to connect to the Ardupad synchronization server.</b>
 			This may be due to an incompatibility with your web browser or internet connection.
 		</p>
 	</div>
@@ -296,7 +342,7 @@ Use this link to share a read-only version of your pad:<input id="readonlyInput"
 	</div>
 	<div id="disconnected_unknown">
 		<p>
-			<b>Lost connection with the EtherPad lite synchronization server.</b> This may be due to a loss of network connectivity.
+			<b>Lost connection with the Ardupad synchronization server.</b> This may be due to a loss of network connectivity.
 		</p>
 	</div>
 	<div id="disconnected_slowcommit">
