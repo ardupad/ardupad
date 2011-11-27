@@ -41,7 +41,8 @@ exports.dbSettings = { "filename" : "../var/dirty.db" };
 /**
  * The default Text of a new pad
  */
-exports.defaultPadText = "// Welcome to ardupad\n\nvoid setup() {\n  // your initialization code here\n}\n\nvoid loop() {\n   // your loop code here\n}";
+exports.defaultPadText =  "/*\n Welcome to Ardupad.cc\n The collaborative online Arduino IDE.\n\n Fire away the code!\n */\n\nvoid setup() {\n  // initialize the digital pin as an output.\n  // Pin 13 has an LED connected on mo    st Arduino boards:\n  pinMode(13, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(13, HIGH);   // set the LED on\n  delay(1000);              // wait for a second\n  digitalWrite(13, LOW);    // set the LED off\n  delay(1000);                  // wait for a second\n}\n";
+
 /**
  * A flag that shows if minification is enabled or not
  */
