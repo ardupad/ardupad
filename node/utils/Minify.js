@@ -4,7 +4,7 @@
  */ 
 
 /*
- * 2011 Peter 'Pita' Martischka (Primary Technology Ltd)
+ * 2011 Peter 'Pita' Martischka (Primary Technology Ltd), Pierros Papadeas
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
