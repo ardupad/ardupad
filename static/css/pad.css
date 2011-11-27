@@ -916,6 +916,53 @@ ul#colorpickerswatches li:hover
   bottom: 2px;
 }
 
+#serialbox
+{
+  position:absolute;
+  bottom:0px;
+  left: 46px;
+  width: 180px;
+  height: 200px;
+  z-index: 400;
+  background-color:#f7f7f7;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  border-top: 1px solid #999;
+  padding: 3px;
+  padding-bottom: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display:none;
+}
+
+#serialtext
+{
+  background-color: white;
+  border: 1px solid white;
+  overflow-y:scroll;
+  font-size: 12px;
+  position:absolute;
+  right:0px;
+  left:0px;
+  top:25px;
+  bottom:25px;
+}
+
+#serialtext p
+{
+  padding: 3px;
+  overflow-x: hidden;
+}
+
+#serialinputbox
+{
+  padding: 3px 2px;
+  position: absolute;
+  bottom:0px;
+  right:0px;
+  left:3px;
+}
+
 #seriallabel
 {
   font-size:13px;
@@ -932,7 +979,7 @@ ul#colorpickerswatches li:hover
   z-index: 400;
   position:absolute;
   bottom:0px;
-  left: 20px;
+  left: 46px;
   padding: 5px;
   border-left: 1px solid #999;
   border-right: 1px solid #999;

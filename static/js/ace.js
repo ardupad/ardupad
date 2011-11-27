@@ -1,5 +1,5 @@
 /**
- * Copyright 2009 Google Inc.
+ * Copyright 2009 2011 Google Inc., Pierros Papadeas
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -262,6 +262,7 @@ function Ace2Editor()
       iframeHTML.push($$INCLUDE_JS_Q("../static/js/linestylefilter.js"));
       iframeHTML.push($$INCLUDE_JS_Q("../static/js/domline.js"));
       iframeHTML.push($$INCLUDE_JS_Q("../static/js/ace2_inner.js"));
+      iframeHTML.push($$INCLUDE_JS_Q("../static/js/serial.js"));
 
       iframeHTML.push('\'\\n<style type="text/css" title="dynamicsyntax"></style>\\n\'');
       iframeHTML.push('\'</head><body id="innerdocbody" class="syntax" spellcheck="false">&nbsp;</body></html>\'');
