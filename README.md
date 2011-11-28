@@ -1,16 +1,22 @@
 # Our goal is to make collaborative editing the standard on the web
 
 # About
-Etherpad lite is a really-real time collaborative editor spawned from the Hell fire of Etherpad. 
-We're reusing the well tested Etherpad easysync library to make it really realtime. Etherpad Lite 
-is based on node.js ergo is much lighter and more stable than the original Etherpad. Our hope 
-is that this will encourage more users to use and install a realtime collaborative editor. A smaller, manageable and well 
-documented codebase makes it easier for developers to improve the code and contribute towards the project. 
+Etherpad lite is a really-real time collaborative editor spawned from the Hell fire of Etherpad.
+We're reusing the well tested Etherpad easysync library to make it really realtime. Etherpad Lite
+is based on node.js ergo is much lighter and more stable than the original Etherpad. Our hope
+is that this will encourage more users to use and install a realtime collaborative editor. A smaller, manageable and well
+documented codebase makes it easier for developers to improve the code and contribute towards the project.
 
-Etherpad Lite is optimized to be easy embeddable. It provides a [HTTP API](https://github.com/Pita/etherpad-lite/wiki/HTTP-API) 
-that allows your web application to manage pads, users and groups. 
-You can use this [PHP Client](https://github.com/TomNomNom/etherpad-lite-client) to work with the API 
-(If you don't want to use PHP, feel free to create a client for your favourite web development language). 
+Etherpad Lite is optimized to be easy embeddable. It provides a [HTTP API](https://github.com/Pita/etherpad-lite/wiki/HTTP-API)
+that allows your web application to manage pads, users and groups.
+There are several clients in for this API:
+
+* [PHP](https://github.com/TomNomNom/etherpad-lite-client), thx to [TomNomNom](https://github.com/TomNomNom)
+* [.Net](https://github.com/ja-jo/EtherpadLiteDotNet), thx to [ja-jo](https://github.com/ja-jo)
+* [Node.js](https://github.com/tomassedovic/etherpad-lite-client-js), thx to [tomassedovic](https://github.com/tomassedovic)
+* [Ruby](https://github.com/jhollinger/ruby-etherpad-lite), thx to [jhollinger](https://github.com/jhollinger)
+* [Python](https://github.com/devjones/PyEtherpadLite), thx to [devjones](https://github.com/devjones)
+
 There is also a [jQuery plugin](https://github.com/johnyma22/etherpad-lite-jquery-plugin) that helps you to embed Pads into your website
 
 **Online demo**<br>
@@ -23,19 +29,14 @@ Visit <http://dev.ardupad.cc> to test it live
 **As root:**
 
 <ol>
-  <li>Install the dependencies. We need the gzip, git, curl, libssl develop libraries and python <br> 
-  <li>For Debian/Ubuntu<code>apt-get install gzip git-core curl python libssl-dev build-essential</code> <br></li>
-  <li>For Fedora/CentOS 
-	<ol type="a">
-	<li><code>yum install gzip git-core curl python openssl-dev</code></li>
-	<li><code>yum groupinstall "Development Tools"</code></li></li>
-	</ol>
+  <li>Install the dependencies. We need gzip, git, curl, libssl develop libraries, python and gcc. <br><i>For Debian/Ubuntu</i> <code>apt-get install gzip git-core curl python libssl-dev build-essential</code><br>
+  <i>For Fedora/CentOS</i> <code>yum install gzip git-core curl python openssl-dev && yum groupinstall "Development Tools"</code>
   </li><br>
-  <li>Install node.js 
+  <li>Install node.js
     <ol type="a">
-      <li>Download the latest <b>0.4.x</b> node.js release from <a href="http://nodejs.org/#download">http://nodejs.org/#download</a></li>
-      <li>Extract it with <code>tar xf node-v0.4*</code></li>
-      <li>Move into the node folder <code>cd node-v0.4*</code> and build node with <code>./configure && make && make install</code></li>
+      <li>Download the latest <b>0.6.x</b> node.js release from <a href="http://nodejs.org/#download">http://nodejs.org/#download</a></li>
+      <li>Extract it with <code>tar xf node-v0.6*</code></li>
+      <li>Move into the node folder <code>cd node-v0.6*</code> and build node with <code>./configure && make && make install</code></li>
     </ol>
   </li>
   <li>Install npm <code>curl http://npmjs.org/install.sh | sh</code></li>
@@ -53,9 +54,11 @@ Visit <http://dev.ardupad.cc> to test it live
 ## Next Steps
 You can modify the settings in the file `settings.json`
 
+You should use a dedicated database such as "mysql" if you are planning on using etherpad-lite in a production environment, the "dirty" database driver is only for testing and/or development purposes.
+
 You can update to the latest version with `git pull origin`. The next start with bin/run.sh will update the dependencies
 
-Look at this wiki pages: 
+Look at this wiki pages:
 
 * [How to deploy Etherpad Lite as a service](https://github.com/Pita/etherpad-lite/wiki/How-to-deploy-Etherpad-Lite-as-a-service)
 * [How to put Etherpad Lite behind a reverse Proxy](https://github.com/Pita/etherpad-lite/wiki/How-to-put-Etherpad-Lite-behind-a-reverse-Proxy)

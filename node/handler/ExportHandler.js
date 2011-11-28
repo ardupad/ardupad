@@ -115,7 +115,7 @@ exports.doExport = function(req, res, padId, type)
 	], function(err)
 		     {
 			 if(err && err != "stop") throw err;
-		     })
+		     });
     }
     else
     {
@@ -124,67 +124,69 @@ exports.doExport = function(req, res, padId, type)
 	var srcFile, destFile;
 
 	async.series([
-	    //render the html document
-	    function(callback)
-	    {
-		exporthtml.getPadHTMLDocument(padId, null, false, function(err, _html)
-					      {
-						  html = _html;
-						  callback(err);
-					      });
-	    },
-	    //decide what to do with the html export
-	    function(callback)
-	    {
-		//if this is a html export, we can send this from here directly
-		if(type == "html")
-		{
-		    res.send(html);
-		    callback("stop");
-		}
-		//write the html export to a file
-		else
-		{
-		    randNum = Math.floor(Math.random()*new Date().getTime());
-		    srcFile = tempDirectory + "/eplite_export_" + randNum + ".html";
-		    fs.writeFile(srcFile, html, callback);
-		}
-	    },
-	    //send the convert job to abiword
-	    function(callback)
-	    {
-		//ensure html can be collected by the garbage collector
-		html = null;
+      //render the html document
+			 function(callback)
+			 {
+			     exporthtml.getPadHTMLDocument(padId, null, false, function(err, _html)
+							   {
+							       html = _html;
+							       callback(err);
+							   });
+			 },
+			 //decide what to do with the html export
+			 function(callback)
+			 {
+			     //if this is a html export, we can send this from here directly
+			     if(type == "html")
+			     {
+				 res.send(html);
+				 callback("stop");
+			     }
+			     else //write the html export to a file
+			     {
+				 randNum = Math.floor(Math.random()*0xFFFFFFFF);
+				 srcFile = tempDirectory + "/eplite_export_" + randNum + ".html";
+				 fs.writeFile(srcFile, html, callback);
+			     }
+			 },
+			 //send the convert job to abiword
+			 function(callback)
+			 {
+			     //ensure html can be collected by the garbage collector
+			     html = null;
 
-		destFile = tempDirectory + "/eplite_export_" + randNum + "." + type;
-		abiword.convertFile(srcFile, destFile, type, callback);
-	    },
-	    //send the file
-	    function(callback)
-	    {
-		res.sendfile(destFile, null, callback);
-	    },
-	    //clean up temporary files
-	    function(callback)
-	    {
-		async.parallel([
-		    function(callback)
-		    {
-			fs.unlink(srcFile, callback);
-		    },
-		    function(callback)
-		    {
-			//100ms delay to accomidate for slow windows fs
-			setTimeout(function()
-				   {
-				       fs.unlink(destFile, callback);
-				   }, 100);
-		    }
-		], callback);
-	    }
-	], function(err)
+			     destFile = tempDirectory + "/eplite_export_" + randNum + "." + type;
+			     abiword.convertFile(srcFile, destFile, type, callback);
+			 },
+			 //send the file
+			 function(callback)
+			 {
+			     res.sendfile(destFile, null, callback);
+			 },
+			 //clean up temporary files
+			 function(callback)
+			 {
+			     async.parallel([
+						function(callback)
+						{
+						    fs.unlink(srcFile, callback);
+						},
+						function(callback)
+						{
+						    //100ms delay to accomidate for slow windows fs
+						    if(os.type().indexOf("Windows") > -1)
+						    {
+							setTimeout(function()
+								   {
+								       fs.unlink(destFile, callback);
+								   }, 100);
+						    }
+						}
+										], callback);
+			 }
+										], function(err)
 		     {
 			 if(err && err != "stop") throw err;
-		     })
+		     });
     }
 };
