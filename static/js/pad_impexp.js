@@ -1,5 +1,5 @@
 /**
- * Copyright 2009 Google Inc.
+ * Copyright 2009 Google Inc., Pierros Papadeas
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -244,8 +244,8 @@ var padimpexp = (function()
         $("#exportworda").remove();
         $("#exportpdfa").remove();
         $("#exportopena").remove();
-        $("#importexport").css({"height":"95px"});
-        $("#importexportline").css({"height":"95px"});
+        $("#importexport").css({"height":"120px"});
+        $("#importexportline").css({"height":"120px"});
         $("#import").html("Import is not available");
       }
       else if(clientVars.abiwordAvailable == "withoutPDF")
