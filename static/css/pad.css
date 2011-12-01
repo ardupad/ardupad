@@ -949,7 +949,7 @@ ul#colorpickerswatches li:hover
   right:0px;
   left:0px;
   top:25px;
-  bottom:25px;
+  bottom:45px;
 }
 
 #serialtext p
@@ -1004,6 +1004,16 @@ ul#colorpickerswatches li:hover
 #serialicon a
 {
   text-decoration: none;
+}
+
+form#autoscroll {
+  float:right;
+  margin-top:2px;
+}
+
+select#baudselect {
+  float:left;
+  margin-bottom:3px;
 }
 
 #titlebar

@@ -274,6 +274,18 @@
   <div id="titlebar"><span id ="titlelabel">Serial Monitor</span><a id="titlecrossserial" onClick="serial.hide();return false;">-&nbsp;</a></div>
   <div id="serialtext" class="authorColors"></div>
   <div id="serialinputbox">
+    <select id="baudselect">
+      <option>9600 baud</option>
+      <option>14400 baud</option>
+      <option>19200 baud</option>
+      <option>28800 baud</option>
+      <option>38400 baud</option>
+      <option>57600 baud</option>
+      <option>115200 baud</option>
+    </select>
+    <form id="autoscroll">
+      Autoscroll  <input type="checkbox" id="autoscroll"/>
+    </form>
     <form>
       <input id="serialinput" type="text" maxlength="140"/>
     </form>

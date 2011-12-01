@@ -28,7 +28,7 @@ var serial = (function()
         }, 750, self.scrollDown);
         $("#serialbox").resizable(
         {
-          handles: 'ne', minWidth: 145,
+          handles: 'ne', minWidth: 180,
           start: function (event, ui)
           {
             $("#focusprotector").show();
