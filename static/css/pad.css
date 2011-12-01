@@ -1080,7 +1080,7 @@ position: relative;
 
 .ui-resizable-ne
 {
-  background-image: url("../img/nw-resize.png");
+  background-image: url("../img/ne-resize.png");
   background-repeat: no-repeat;
   background-size: 100% auto;
   cursor: ne-resize;
