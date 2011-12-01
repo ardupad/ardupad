@@ -1026,6 +1026,16 @@ ul#colorpickerswatches li:hover
   color:#555;
 }
 
+#titlecrossserial
+{
+  font-size:25px;
+  float:left;
+  text-align: right;
+  text-decoration: none;
+  cursor: pointer;
+  color:#555;
+}
+
 .time
 {
   float:right;
@@ -1063,11 +1073,14 @@ position: relative;
 
 .ui-resizable-ne
 {
+  background-image: url("../img/nw-resize.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
   cursor: ne-resize;
-  width: 9px;
-  height: 9px;
-  right: -5px;
-  top: -5px;
+  width: 22px;
+  height:22px;
+  right: 0px;
+  top: 0px;
 }
 
 #importexport{
