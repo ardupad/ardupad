@@ -87,6 +87,27 @@
 
 <ul id="menu_right">
 
+<li style="border:0;background:none;width:175px;text-align:right;">
+  <select id="serialportselect">
+    <option>/dev/TTY0USB</option>
+    <option>/dev/TTY1USB</option>
+    <option>/dev/TTY2USB</option>
+    <option>/dev/TTY3USB</option>
+  </select>
+</li>
+
+<li style="border:0;background:none;width:175px;">
+  <select id="boardselect">
+    <option>Arduino Uno</option>
+    <option>Arduino Duemilanove 328P</option>
+    <option>Arduino Duemilanove 168P</option>
+    <option>Arduino Mega 2560</option>
+    <option>Arduino Mega 1280</option>
+    <option>Arduino Diecimila</option>
+    <option>Arduino NG</option>
+  </select>
+</li>
+
 <li onClick="window.pad&&pad.editbarClick('import_export');return false;">
   <a id="exportlink" title="Import/Export from/to different document formats">
     <div class="buttonicon" style="background-position:0px -68px"></div>
